@@ -11,7 +11,6 @@ class ProductController extends Controller
 {
     public function index()
     {
-//        maka liste produits
         $products =  Product::all();
         if (!$products) {
             return response()->json(['message' => 'Products not found'], 404);
