@@ -123,6 +123,8 @@ Communication via tickets et daily standup
 
 Documentation et mise à jour du README à chaque nouvelle fonctionnalité
 
+deployement
+
 ### Bonnes pratiques
 Respecter les normes PSR pour PHP
 
