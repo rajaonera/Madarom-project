@@ -28,6 +28,7 @@ class ProductController extends Controller
         return response()->json($product);
     }
 }
+
 class SubCategoryController extends Controller
 {
     public function index()
@@ -36,6 +37,7 @@ class SubCategoryController extends Controller
         return response()->json($subCategories);
     }
 }
+
 class CategoryController extends Controller
 {
     public function index()
