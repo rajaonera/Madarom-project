@@ -1,158 +1,61 @@
-# Mad’arom V2
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-## Objectif du projet
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-Créer un site web professionnel pour la marque Mad’arom avec une architecture backend sécurisée, réutilisable, et un frontend attractif. Le projet couvre les 4 premières pages du site :
-- Landing page de la marque
-- Catalogue produits
-- Détails d’un produit
-- Informations sur la marque
+## About Laravel
 
-Le backend est développé avec Laravel (PHP), le frontend par un autre développeur (Vue.js, React ou autre).
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
----
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-## Structure du projet
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-- **Backend (Laravel)** : API REST, gestion base de données, sécurité, logique métier.
-- **Frontend** : Interface utilisateur, navigation, affichage visuel, interactions.
+## Learning Laravel
 
----
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-## Configuration & installation
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-### Prérequis
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-- PHP >= 8.1
-- Composer
-- Node.js & npm/yarn (pour frontend)
-- Serveur MySQL/MariaDB
-- Serveur Apache/Nginx (optionnel en local)
+## Laravel Sponsors
 
-### Backend - Installation
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-1. Cloner le dépôt
-2. Copier `.env.example` en `.env`
-3. Configurer les variables de base de données dans `.env`
-4. Installer les dépendances :
-   ```bash
-   composer install
-### Générer la clé d’application :
+### Premium Partners
 
-bash
-```
-php artisan key:generate
-Migrer la base de données :
+- **[Vehikl](https://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Redberry](https://redberry.international/laravel-development)**
+- **[Active Logic](https://activelogic.com)**
 
-bash
-```
-php artisan migrate
-(Optionnel) Lancer le serveur local :
+## Contributing
 
-bash
-```
-php artisan serve
-Frontend - Installation
-Aller dans le dossier frontend
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-Installer les dépendances :
+## Code of Conduct
 
-bash
-```
-npm install
-Lancer le serveur de développement :
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-bash
-```
-npm run dev
-Fonctionnalités principales du sprint 1
-Landing page de présentation de la marque
-```
+## Security Vulnerabilities
 
-### Catalogue affichant tous les produits
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-Page détails d’un produit avec description complète
+## License
 
-Page d’informations sur la marque (histoire, valeurs, contact)
-
-### Rôles et tâches
-#### Backend (Responsable : Smooth)
-Préparer la base de données et les migrations (produits, catégories, utilisateurs si besoin)
-
-Créer les API REST pour :
-
-Liste des produits
-
-Détails d’un produit
-
-Informations générales (marque)
-
-Sécuriser l’accès aux API
-
-Gérer la configuration et les variables d’environnement
-
-Documenter les endpoints API (ex : Swagger, Postman)
-
-Tester les API avec PHPUnit ou Postman
-
-Mettre en place le logging et gestion des erreurs
-
-S’assurer de la conformité aux normes de sécurité (validation, protection CSRF, CORS)
-
-#### Frontend (Responsable : Collaborateur)
-Construire les interfaces des 4 pages en respectant la charte graphique
-
-Consommer les API backend pour afficher les données
-
-Assurer une navigation fluide et responsive
-
-Implémenter les composants réutilisables (cartes produits, navbar, footer)
-
-Optimiser l’accessibilité et la performance
-
-Tester sur plusieurs navigateurs et mobiles
-
-Gérer la configuration frontend (routes, state management si nécessaire)
-
-Workflow de collaboration
-Chaque développeur travaille sur sa branche dédiée (ex: backend-dev, frontend-dev)
-
-Pull requests sur main après revue de code
-
-Communication via tickets et daily standup
-
-Documentation et mise à jour du README à chaque nouvelle fonctionnalité
-
-deployement
-
-### Bonnes pratiques
-Respecter les normes PSR pour PHP
-
-Suivre les conventions de nommage du framework choisi
-
-Valider toutes les entrées utilisateurs côté backend
-
-Garder le code propre, commenté et testable
-
-Ne pas hardcoder les données sensibles (utiliser .env)
-
-Gérer les erreurs proprement et afficher des messages clairs
-
-Sécuriser les routes et les accès API
-
-Faire des commits clairs et fréquents
-
-### Ressources utiles
-Laravel Documentation
-
-PHPUnit Testing
-
-Frontend Framework Docs (ex: Vue.js)
-
-Git Flow Workflow
-
-Contact & support
-Backend : Smooth (Responsable)
-
-Frontend : Adala
-
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
