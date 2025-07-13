@@ -24,4 +24,12 @@ class Product extends Model
     {
         return $this->belongsTo(SubCategory::class);
     }
+
+    protected $appends = ['image_url'];
+
+    public function getImageUrlAttribute()
+    {
+        return $this->image_path ? asset('storage/' . $this->image_path) : null;
+    }
+    
 }
