@@ -9,5 +9,5 @@ Route::get('/', function () {
 
 Route::get('/setup-storage-link', function () {
     Artisan::call('storage:link');
-    return '✅ Lien symbolique storage/public créé avec succès.';
+    return 'Lien symbolique storage/public créé avec succès.';
 });
