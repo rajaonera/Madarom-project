@@ -292,8 +292,6 @@ class ProductSeeder extends Seeder
                 'description_en' => "Extracted from the flowers of Cananga odorata, this oil is known for its rich and floral aroma. Highly appreciated in perfumery, it is also used for its soothing and aphrodisiac properties. Available in liquid form, it releases a soft and exotic fragrance.",
                 'category_id' => 1,
                 'sub_category_id' => 1,
-                'price' => 290000,
-                'quantity_available_kg' => 10,
                 'image_path' => './assets/img/products/ylang-1.jpg',
             ],
             [
@@ -305,8 +303,6 @@ class ProductSeeder extends Seeder
                 'description_en' => "Extracted from the flowers of Cananga odorata, this oil is known for its rich and floral aroma. Highly appreciated in perfumery, it is also used for its soothing and aphrodisiac properties. Available in liquid form, it releases a soft and exotic fragrance.",
                 'category_id' => 1,
                 'sub_category_id' => 1,
-                'price' => 270000,
-                'quantity_available_kg' => 10,
                 'image_path' => './assets/img/products/ylang-2.jpg',
             ],
             [
@@ -318,8 +314,6 @@ class ProductSeeder extends Seeder
                 'description_en' => "Extracted from the flowers of Cananga odorata, this oil is known for its rich and floral aroma. Highly appreciated in perfumery, it is also used for its soothing and aphrodisiac properties. Available in liquid form, it releases a soft and exotic fragrance.",
                 'category_id' => 1,
                 'sub_category_id' => 1,
-                'price' => 240000,
-                'quantity_available_kg' => 10,
                 'image_path' => './assets/img/products/ylang-3.jpg',
             ],
             [
@@ -330,9 +324,7 @@ class ProductSeeder extends Seeder
                 'description_fr' => "Issue des feuilles de l'eucalyptus radiata, cette huile est plus douce et plus délicate que les autres huiles d'eucalyptus, ce qui la rend idéale pour la santé respiratoire et l'aromathérapie. Son parfum frais et pur est disponible sous forme liquide.",
                 'description_en' => "Derived from the leaves of eucalyptus radiata, this oil is softer and more delicate than other eucalyptus oils, making it ideal for respiratory health and aromatherapy. Its fresh and pure scent is available in liquid form.",
                 'category_id' => 1,
-                'sub_category_id' => 1,  // Respiratoire
-                'price' => 120000,
-                'quantity_available_kg' => 28,
+                'sub_category_id' => 1,  
                 'image_path' => './assets/img/products/eucalyptus-radiata.jpg',
             ],
             [
@@ -343,9 +335,7 @@ class ProductSeeder extends Seeder
                 'description_fr' => "Plongez dans la douceur florale de l'huile essentielle de Palmarosa Cymbopogon martinii, obtenue par distillation à la vapeur d'eau d'herbes fraîches ou partiellement séchées. Son parfum subtil, à la fois floral, herbacé et délicatement exotique, rappelle la douceur de la rose tout en offrant une note unique.",
                 'description_en' => "Immerse yourself in the floral softness of Palmarosa essential oil, obtained by steam distillation of fresh or partially dried herbs. Its subtle scent, both floral, herbal, and delicately exotic, recalls the sweetness of rose while offering a unique note.",
                 'category_id' => 1,
-                'sub_category_id' => 1,  // Respiratoire (could be adapted)
-                'price' => 320000,
-                'quantity_available_kg' => null,  // Sur demande
+                'sub_category_id' => 1,
                 'image_path' => './assets/img/products/palmarosa.jpg',
             ],
             [
@@ -356,9 +346,7 @@ class ProductSeeder extends Seeder
                 'description_fr' => "Extraite des feuilles de la plante Psidia altissima, cette huile peu connue est réputée pour ses effets anti-inflammatoires et analgésiques. Utilisée en médecine traditionnelle, elle est de plus en plus présente sur les marchés internationaux des produits de santé naturels, avec son parfum boisé et herbacé sous forme liquide.",
                 'description_en' => "Extracted from the leaves of the Psiadia altissima plant, this little-known oil is reputed for its anti-inflammatory and analgesic effects. Used in traditional medicine, it is increasingly present in international natural health product markets, with its woody and herbal scent in liquid form.",
                 'category_id' => 1,
-                'sub_category_id' => 1,  // Respiratoire or adapt
-                'price' => 120000,
-                'quantity_available_kg' => 8,
+                'sub_category_id' => 1,  
                 'image_path' => './assets/img/products/dingadingana.jpg',
             ],
             [
@@ -369,9 +357,7 @@ class ProductSeeder extends Seeder
                 'description_fr' => "Dérivée des aiguilles et des brindilles du cyprès, cette huile est reconnue pour son parfum frais et pur et ses propriétés apaisantes. Elle est utilisée dans les huiles de massage, les soins spa et pour le soutien respiratoire, généralement sous forme liquide.",
                 'description_en' => "Derived from the needles and twigs of cypress, this oil is known for its fresh and pure scent and soothing properties. It is used in massage oils, spa treatments, and for respiratory support, generally in liquid form.",
                 'category_id' => 1,
-                'sub_category_id' => 1,  // Respiratoire
-                'price' => 120000,
-                'quantity_available_kg' => 6,
+                'sub_category_id' => 1,
                 'image_path' => './assets/img/products/cypres.jpg',
             ],
               
