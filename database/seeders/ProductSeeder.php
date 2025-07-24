@@ -41,7 +41,7 @@ class ProductSeeder extends Seeder
                 'image_path' => './assets/img/products/PH0029.png',
             ],            
             [
-                'reference' => 'PH002',  // identifiant unique (exemple)
+                'reference' => 'PH002', 
                 'name_fr' => 'Géranium',
                 'name_en' => 'Geranium',
                 'name_latin' => 'Pelargonium graveolens',
@@ -52,7 +52,7 @@ class ProductSeeder extends Seeder
                 'image_path' => './assets/img/products/PH002.png',
             ],
             [
-                'reference' => 'PE002',  // identifiant unique (exemple)
+                'reference' => 'PE002', 
                 'name_fr' => 'Extrait de Vanille',
                 'name_en' => 'Vanilla Extract',
                 'name_latin' => 'Vanilla planifolia',
@@ -63,7 +63,7 @@ class ProductSeeder extends Seeder
                 'image_path' => './assets/img/products/PE002.png',
             ],
             [
-                'reference' => 'PH003',  // identifiant unique (exemple)
+                'reference' => 'PH003', 
                 'name_fr' => 'Rambiazina vavy',
                 'name_en' => 'Helichrysum (female)',
                 'name_latin' => 'Helichrysum gymnocephalum',
@@ -74,7 +74,7 @@ class ProductSeeder extends Seeder
                 'image_path' => './assets/img/products/PH003.png',
             ],
             [
-                'reference' => 'PH004',  // identifiant unique (exemple)
+                'reference' => 'PH004', 
                 'name_fr' => 'Rambiazina lahy',
                 'name_en' => 'Helichrysum bracteiferum (male)',
                 'name_latin' => 'Helichrysum bractéiferum',
@@ -85,7 +85,7 @@ class ProductSeeder extends Seeder
                 'image_path' => './assets/img/products/PH004.png',
             ],
             [
-                'reference' => 'PH005',  // identifiant unique (exemple)
+                'reference' => 'PH005', 
                 'name_fr' => 'Tagète',
                 'name_en' => 'Tagetes',
                 'name_latin' => 'Tagete minuta',
@@ -96,7 +96,7 @@ class ProductSeeder extends Seeder
                 'image_path' => './assets/img/products/PH005.png',
             ],
             [
-                'reference' => 'PH006',  // identifiant unique (exemple)
+                'reference' => 'PH006', 
                 'name_fr' => 'Girofle (feuilles)',
                 'name_en' => 'Clove (leaves)',
                 'name_latin' => 'Eugenia caryophyllata',
