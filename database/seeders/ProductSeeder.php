@@ -15,7 +15,6 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
 
-        // Supprime toutes les anciennes données
         DB::table('products')->truncate();
 
         DB::table('products')->insert([
@@ -37,8 +36,8 @@ class ProductSeeder extends Seeder
                 'name_latin' => 'Piper nigrum',
                 'description_fr' => "Extraite du poivre noir cultivé à Madagascar, l'huile essentielle de Piper nigrum est réputée pour son arôme chaud, épicé et légèrement boisé. Riche en composés actifs, elle est appréciée en aromathérapie pour ses propriétés stimulantes et réchauffantes. Elle est également utilisée dans les cosmétiques, les huiles de massage et les formules bien-être pour favoriser la circulation et soulager les tensions musculaires.",
                 'description_en' => "Extracted from black pepper cultivated in Madagascar, Piper nigrum essential oil is known for its warm, spicy, and slightly woody aroma. Rich in active compounds, it is valued in aromatherapy for its stimulating and warming properties. It is also used in cosmetics, massage oils, and wellness formulas to promote circulation and relieve muscle tension.",
-                'category_id' => 1,  // Huiles essentielles
-                'sub_category_id' => 3,  // Tonifiant
+                'category_id' => 1, 
+                'sub_category_id' => 3,  
                 'image_path' => './assets/img/products/PH0029.png',
             ],            
             [
