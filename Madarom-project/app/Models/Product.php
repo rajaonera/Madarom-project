@@ -15,6 +15,11 @@ class Product extends Model
         'category_id', 'subcategory_id', 'image_path'
     ];
 
+    public static function findOrFail($id): \Illuminate\Http\JsonResponse
+    {
+        return Product::findOrFail($id);
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);

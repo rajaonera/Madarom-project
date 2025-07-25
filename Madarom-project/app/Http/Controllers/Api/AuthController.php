@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Ratelimiter;
-use App\Http\Controllers\Str;
-use App\Http\Controllers\User;
-use App\Http\Controllers\ValidationException;
-use App\Models\Product;
+use App\Http\Services\ApiSessionService;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -20,6 +20,9 @@ class AuthController extends Controller
         return Str::lower($request->input('email')) . '|' . $request->ip();
     }
 
+    /**
+     * @throws ValidationException
+     */
     public function login(Request $request): JsonResponse
     {
         $fields = $request->validate([
@@ -27,37 +30,50 @@ class AuthController extends Controller
             'password' => 'required|string'
         ]);
 
-        if (Ratelimiter::tooManyAttemps($this -> throttleKey($request),5)){
-            return response()->json(['message' => 'Too many login attemps. please try again later. '], 429);
+        $key = $this->throttleKey($request);
+        $maxAttempts = 5;
+
+        // Nombre actuel de tentatives
+        $attempts = RateLimiter::attempts($key);
+
+        // Calcul du temps de blocage progressif
+        if ($attempts >= $maxAttempts) {
+            $delay = ($attempts - $maxAttempts + 1) * 60; // ex: 6e tentative = 60s, 7e = 120s, ...
+            RateLimiter::hit($key, $delay);
+
+            return response()->json([
+                'message' => "Trop de tentatives. Réessayez dans $delay secondes."
+            ], 429);
         }
 
-        $user  = User::where('email', $fields['email'])->first();
+        $user = User::where('email', $fields['email'])->first();
 
         if (!$user || !Hash::check($fields['password'], $user->password)) {
-            RateLimiter::hit($this -> throttleKey($request), 60);
-//            nombre de bloquage progressive aappres erreur
+            RateLimiter::hit($key); // On incrémente quand même
+
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);
         }
-        RateLimiter::clear($this -> throttleKey($request));
 
-        $token = $user -> createToken('api_token')->plainTextToken;
-        $request -> session()->regenerate();
+        // Succès → reset du compteur
+        RateLimiter::clear($key);
+
+        $token = $user->createToken('api_token')->plainTextToken;
 
 
-        $request -> session() -> put('user' , $user);
-        $request -> session() -> put('last_url' , url() -> previous());
-        $request -> session() -> put('language' , 'en');
-        $request -> session() -> put('cart' , $request->session() -> get('cart') , []);
-        $request -> session() -> save();
+        ApiSessionService::store($user->id, [
+            'userId' => $user->id,
+            'language' => 'en',
+            'last_url' => url()->previous(),
+            'cart' => []
+        ]);
 
         return response()->json([
             'user' => $user,
             'token' => $token
         ], 201);
     }
-
     public function register(Request $request): JsonResponse
     {
         $fields = $request->validate([
@@ -74,7 +90,7 @@ class AuthController extends Controller
             'password' => bcrypt($fields['password']),
         ]);
 
-        $token = $user -> createToken('myapptoken')->plainTextToken;
+        $token = $user->createToken('myapp token')->plainTextToken;
         auth()->login($user);
 
         return response()->json([
@@ -85,69 +101,11 @@ class AuthController extends Controller
 
     public  function logout(Request $request): JsonResponse
     {
-        $request -> user()->currentAccessToken()->delete();
-        $request -> session()->invalidate();
-        $request -> session()->regenerateToken();
+        $request->user()->currentAccessToken()->delete();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-        return response()->json(['message' => 'Logged out successfully'], 200);
+        return response()->json(['message' => 'Logged out successfully']);
     }
 
-
-
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Product $product)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Product $product)
-    {
-        //
-    }
 }
-

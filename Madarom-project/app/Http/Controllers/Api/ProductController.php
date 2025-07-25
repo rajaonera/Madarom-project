@@ -9,7 +9,7 @@ use App\Models\SubCategory;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(): \Illuminate\Http\JsonResponse
     {
 //        maka liste produits
         $products =  Product::all();
@@ -19,28 +19,9 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
-    public function show($id)
+    public function show($id): \Illuminate\Http\JsonResponse
     {
         $product =  Product::findOrFail($id);
-        if (!$product) {
-            return response()->json(['message' => 'Product not found'], 404);
-        }
         return response()->json($product);
-    }
-}
-class SubCategoryController extends Controller
-{
-    public function index()
-    {
-        $subCategories =  SubCategory::all();
-        return response()->json($subCategories);
-    }
-}
-class CategoryController extends Controller
-{
-    public function index()
-    {
-        $categories =  Category::all();
-        return response()->json($categories);
     }
 }

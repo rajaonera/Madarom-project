@@ -4,7 +4,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SubCategoryController;
 use App\Http\Controllers\Api\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\CartController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('throttle:60,1')->get('/ping', function () {
@@ -29,22 +29,17 @@ Route::prefix('subcategories')->group(function () {
 
 
 // API connexion et inscription
-Route::middleware('throttle:60,1')->post('/register', [AuthController::class, 'register']);
-//Route::post('/login',[AuthController::class, 'login']);
-Route::prefix('users')->group(function () {
-    Route::middleware('throttle:60,1')->get("/", function () {
-        return response()->json(['message' => 'users is here']);
-    });
-    Route::middleware('throttle:60,1') ->get("/register", [AuthController::class, 'register']);
-    Route::middleware('throttle:60,1') ->get("/login", [AuthController::class, 'login']);
-    Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
-        return $request->user();
-    });
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login',[AuthController::class, 'login']);
 
+// API gestion de panier
+Route::middleware('auth:sanctum')->prefix('cart')->group(function () {
+    Route::get('/', [CartController::class, 'index']);
+    Route::post('/', [CartController::class, 'add']);
+    Route::put('/{product_id}', [CartController::class, 'update']);
+    Route::delete('/{product_id}', [CartController::class, 'remove']);
+    Route::delete('/', [CartController::class, 'clear']);
 });
-
-
-// API liste user
 
 
 // API logout
