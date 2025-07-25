@@ -59,6 +59,9 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1', // Limitation à 60 requêtes par minute
             SubstituteBindings::class,
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+                'throttle:api',
+                \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
 
@@ -80,4 +83,5 @@ class Kernel extends HttpKernel
         'throttle' => ThrottleRequests::class,
         'verified' => EnsureEmailIsVerified::class,
     ];
+
 }
