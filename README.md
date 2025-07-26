@@ -33,7 +33,7 @@
 ##  Installation
 
 ```bash
-git clone https://github.com/votre-utilisateur/madarom-backend.git
+git clone https://github.com/rajaonera/madarom-project.git
 cd madarom-backend
 
 # Installation des dépendances
