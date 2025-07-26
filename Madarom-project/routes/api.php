@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\PreferencesUserController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SubCategoryController;
 use App\Http\Controllers\Api\AuthController;
@@ -40,6 +41,15 @@ Route::middleware('auth:sanctum')->prefix('cart')->group(function () {
     Route::delete('/{product_id}', [CartController::class, 'remove']);
     Route::delete('/', [CartController::class, 'clear']);
 });
+
+//  API gestion de preferences
+Route::middleware('auth:sanctum')->prefix('preferences')->group(function () {
+    Route::get('/lang', [PreferencesUserController::class, 'get_language']);
+    Route::post('/lang', [PreferencesUserController::class, 'set_language']);
+    Route::get('/url', [PreferencesUserController::class, 'get_lastUrl']);
+    Route::post('/url', [PreferencesUserController::class, 'set_lastUrl']);
+});
+
 
 
 // API logout

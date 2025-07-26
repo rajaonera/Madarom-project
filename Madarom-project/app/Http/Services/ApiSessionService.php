@@ -119,4 +119,25 @@ public static function getCart(string $user_id): array
     return $session['cart'] ?? [];
 }
 
+    public static function get_language($id)
+    {
+        $cacheKey = self::getCacheKey($id);
+        $session  = Cache::get($cacheKey,[]);
+
+        return $session['language'] ?? 'en';
+    }
+
+    public static function get_lastUrl($user_id)
+    {
+        $cacheKey = self::getCacheKey($user_id);
+        $session  = Cache::get($cacheKey,[]);
+
+        return $session['last_url'] ?? '/';
+    }
+
+    public static function set_lastUrl($user_id, $new_url)
+    {
+        self::update_field($user_id,'last_url',$new_url);
+    }
+
 }
