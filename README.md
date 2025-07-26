@@ -11,6 +11,7 @@
 -  Panier dynamique stocké en cache (lié à l’utilisateur)
 -  Préférences utilisateur (langue, dernière URL) stockées en cache
 -  Système de commandes et suivi
+-  systeme de devis, bon de commande, facturation
 -  Logging, pagination, filtrage
 -  Architecture RESTful propre et modulaire
 
