@@ -17,6 +17,9 @@ Route::middleware('throttle:60,1')->get('/ping', function () {
 Route::prefix('products')->group(function () {
     Route::middleware('throttle:60,1')->get('/', [ProductController::class, 'index']);
     Route::middleware('throttle:60,1')->get('/{id}', [ProductController::class, 'show']);
+    Route::middleware('throttle:60,1')->get('/details', [ProductController::class, 'index_details']);
+    Route::middleware('throttle:60,1')->get('/details/{id}', [ProductController::class, 'show_details']);
+
 });
 
 // API categorie

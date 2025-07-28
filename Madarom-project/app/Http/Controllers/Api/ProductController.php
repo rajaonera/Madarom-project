@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
+use http\Env\Response;
 
 class ProductController extends Controller
 {
@@ -17,9 +19,24 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
+    public function index_details(): \Illuminate\Http\JsonResponse
+    {
+        $products =  Product::with('activePrice')->get();
+        if (!$products) {
+            return response()->json(['message' => 'Products not found'], 404);
+        }
+        return response()->json(ProductResource::collection($products)) ;
+    }
+
     public function show($id): \Illuminate\Http\JsonResponse
     {
         $product =  Product::findOrFail($id);
         return response()->json($product);
+    }
+
+    public function details_show($id): \Illuminate\Http\JsonResponse
+    {
+        $product =  Product::with('activePrice')->findOrFail($id);
+        return response()-json(new  ProductResource($product)) ;
     }
 }
