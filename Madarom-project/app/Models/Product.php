@@ -40,7 +40,7 @@ class Product extends Model
     public function quoteRequests(): HasMany
     {
         return $this->hasMany(QuoteRequest::class);
-    }       
+    }
 
     public function activePrice(): HasOne
     {
