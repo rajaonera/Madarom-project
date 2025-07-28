@@ -135,7 +135,7 @@ public static function getCart(string $user_id): array
         return $session['last_url'] ?? '/';
     }
 
-    public static function set_lastUrl($user_id, $new_url)
+    public static function set_lastUrl($user_id, $new_url): void
     {
         self::update_field($user_id,'last_url',$new_url);
     }

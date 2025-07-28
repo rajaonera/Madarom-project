@@ -120,6 +120,12 @@
       <excludeFolder url="file://$MODULE_DIR$/Madarom-project/vendor/staabm/side-effects-detector" />
       <excludeFolder url="file://$MODULE_DIR$/Madarom-project/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/Madarom-project/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/Madarom-project/vendor/barryvdh/laravel-dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/Madarom-project/vendor/dompdf/dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/Madarom-project/vendor/dompdf/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/Madarom-project/vendor/dompdf/php-svg-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/Madarom-project/vendor/masterminds/html5" />
+      <excludeFolder url="file://$MODULE_DIR$/Madarom-project/vendor/sabberworm/php-css-parser" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\SubCategoryController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CartController;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\Api\QuoteController;
 
 Route::middleware('throttle:60,1')->get('/ping', function () {
     return response()->json(['message' => 'pong']);
@@ -50,6 +51,17 @@ Route::middleware('auth:sanctum')->prefix('preferences')->group(function () {
     Route::post('/url', [PreferencesUserController::class, 'set_lastUrl']);
 });
 
+//  API gestion de devis
+Route::middleware('auth:sanctum')->prefix('quote')->group(function () {
+    Route::get('/', [QuoteController::class, 'index']);
+    Route::post('/', [QuoteController::class, 'store']);
+});
+
+// API gestion de prix
+//Route::middleware('auth:sanctum')->prefix('price')->group(function () {
+//    Route::get('/', [QuoteController::class, 'index']);
+//    Route::post('/', [QuoteController::class, 'store']);
+//});
 
 
 // API logout

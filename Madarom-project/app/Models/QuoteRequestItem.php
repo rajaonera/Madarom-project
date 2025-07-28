@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class QuoteRequestItem extends Model
 {
-    protected $fillable =  ['quote_request_id','product_id', 'quantity' ];
+    protected $fillable =  ['quote_request_id','product_id', 'quantity', 'price_snapshot' ];
 
     public function quoteRequest(): belongsTo
     {

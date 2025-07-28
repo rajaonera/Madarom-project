@@ -2,23 +2,22 @@
 
 namespace App\Models;
 
-use App\Http\Services\QuoteService;
 use Illuminate\Database\Eloquent\Model;
-use \Illuminate\Database\Eloquent\Relations\BelongsTo;
-use \Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class QuoteRequest extends Model
+class Quote extends Model
 {
-    protected $fillable = ['user_id', 'status', 'notes'];
+    protected $fillable = ['user_id', 'status','quote_number', 'notes'];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function items (): HasMany
+    public function items (): HasOne
     {
-        return $this->hasMany(QuoteRequestItem::class);
+        return $this->hasOne(QuoteRequest::class);
     }
     public function is_validated(): bool
     {
