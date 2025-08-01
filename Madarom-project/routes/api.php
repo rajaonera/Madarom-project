@@ -13,16 +13,16 @@ Route::middleware('throttle:60,1')->get('/ping', function () {
     return response()->json(['message' => 'pong']);
 });
 
-// Api Products
+// API Products
 Route::prefix('products')->group(function () {
     Route::middleware('throttle:60,1')->get('/', [ProductController::class, 'index']);
-    Route::middleware('throttle:60,1')->get('/{id}', [ProductController::class, 'show']);
     Route::middleware('throttle:60,1')->get('/details', [ProductController::class, 'index_details']);
-    Route::middleware('throttle:60,1')->get('/details/{id}', [ProductController::class, 'show_details']);
+    Route::middleware('throttle:60,1')->get('/{id}', [ProductController::class, 'show']);
+    Route::middleware('throttle:60,1')->get('/details/{id}', [ProductController::class, 'details_show']);
 
 });
 
-// API categorie
+// API categories
 Route::prefix('categories')->group(function () {
     Route::middleware('throttle:60,1')->get('/', [CategoryController::class, 'index']);
 });

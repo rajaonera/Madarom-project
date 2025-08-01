@@ -19,7 +19,7 @@ class Product extends Model
 
     public static function findOrFail($id): \Illuminate\Http\JsonResponse
     {
-        return Product::findOrFail($id);
+        return Product::where('id', $id)->firstOrFail();
     }
 
     public function category(): BelongsTo
@@ -44,10 +44,9 @@ class Product extends Model
 
     public function activePrice(): HasOne
     {
-        return $this->prices()
-            ->where('is_active', true)
-            ->where('effective_date', '<=', now())
-            ->orderBy('effective_date', 'desc')
-            ->first() ;
+        print ("active price");
+        return $this->hasOne(Price::class)
+             ->where('is_active', true)
+            ->orderBy('effective_date', 'desc');
     }
 }
