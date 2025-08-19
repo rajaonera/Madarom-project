@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1df19c4d-bdd0-489c-9e9e-799d260bfc0d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Madarom-project/app/Http/Controllers/Api/QuoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Madarom-project/app/Http/Controllers/Api/QuoteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Madarom-project/app/Http/Services/QuoteRequestService.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Madarom-project/app/Http/Services/QuoteRequestService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Madarom-project/app/Http/Services/QuoteService.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Madarom-project/app/Http/Services/QuoteService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Madarom-project/app/Models/Quote.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Madarom-project/app/Models/Quote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Madarom-project/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Madarom-project/routes/api.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "rajaonera"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/rajaonera/Madarom-project.git",
+    "accountId": "6ef0e8ce-e6a1-44ae-ac81-2869416fce9b"
+  }
+}]]></component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="318C8o0dGpi91y9R5th6geDZGrj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.SpringTicketApplication.executor": "Run",
+    "git-widget-placeholder": "quote",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="SpringTicketApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="spring-ticket" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smooth.springticket.SpringTicketApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1df19c4d-bdd0-489c-9e9e-799d260bfc0d" name="Changes" comment="" />
+      <created>1754896158400</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1754896158400</updated>
+      <workItem from="1754896159616" duration="754000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

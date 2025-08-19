@@ -5,6 +5,7 @@ namespace App\Http\Services;
 use App\Models\Product;
 use App\Models\QuoteRequest;
 use App\Models\QuoteRequestItem;
+use App\Models\User;
 use App\notifications\QuoteRequestNotification;
 use Exception;
 use Illuminate\Support\Facades\Cache;
@@ -57,9 +58,9 @@ class QuoteRequestService
 //        Notification admin
         $admins = User::where('role', 'admin')->get();
 
-        foreach ($admins as $admin) {
-            $admin->notify(new QuoteRequestNotification($quote));
-        }
+//        foreach ($admins as $admin) {
+//            $admin->notify(new QuoteRequestNotification($quote));
+//        }
 
 //        Notification::route('mail', '<EMAIL>')->notify(new QuoteRequestNotification($quote));
 

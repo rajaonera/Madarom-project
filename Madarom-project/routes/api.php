@@ -44,6 +44,7 @@ Route::middleware('auth:sanctum')->prefix('cart')->group(function () {
     Route::put('/{product_id}', [CartController::class, 'update']);
     Route::delete('/{product_id}', [CartController::class, 'remove']);
     Route::delete('/', [CartController::class, 'clear']);
+
 });
 
 //  API gestion de preferences
@@ -66,6 +67,10 @@ Route::middleware('auth:sanctum')->prefix('quote')->group(function () {
 //    Route::post('/', [QuoteController::class, 'store']);
 //});
 
+// API validation / creation de devis
+Route::middleware('auth:sanctum')->prefix('quote')->group(function () {
+    Route::Post('/validate_quote', [QuoteController::class, 'validateQuoteRequest']);
+});
 
 // API logout
 Route::middleware('auth:sanctum')->post('/logout',[AuthController::class, 'logout']);

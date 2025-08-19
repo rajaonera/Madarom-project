@@ -2,7 +2,11 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/S4-Framework-Java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/S6-Ticketing-Java-servlet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/madarom-frontend" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/skyresolv" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/smartsaha_pa" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/spring_ticket" vcs="Git" />
   </component>
 </project>
