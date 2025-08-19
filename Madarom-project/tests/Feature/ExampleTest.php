@@ -12,7 +12,11 @@ class ExampleTest extends TestCase
      */
     public function test_the_application_returns_a_successful_response(): void
     {
-        $response = $this->get('/');
+
+        $data  = [
+
+        ];
+        $response = $this->post('/quote/validate_quote', $data);
 
         $response->assertStatus(200);
     }
