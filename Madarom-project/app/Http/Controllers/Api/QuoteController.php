@@ -58,12 +58,56 @@ class QuoteController extends Controller
     {
         $quoteRequest = QuoteRequest::with('user', 'items.product.activePrice')->findOrFail($id);
         $user  = Session::get('user');
-        $pdfPath = $this->quoteService->validateAndGenerateQuote($user, $quoteRequest, $days, $hours);
+         $this->quoteService->validateAndGenerateQuote($user, $quoteRequest, $days, $hours);
 
         return response()->json([
             'message' => 'Devis généré avec succès.',
-            'pdf_url' => asset('storage/devis/' . basename($pdfPath))
+//            'pdf_url' => asset('storage/devis/' . basename($pdfPath))
         ]);
     }
 
+    /**
+     * @throws Exception
+     */
+    public function cancelQuote(int $idQuote): \Illuminate\Http\JsonResponse
+    {
+        $quote = Quote::findOrFail($idQuote);
+        $user  = Session::get('user');
+        $this->quoteService->canceledQuote($user, $quote);
+
+        return response()->json([
+            'message' => 'Devis annule.',
+//            'pdf_url' => asset('storage/devis/' . basename($pdfPath))
+        ]);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function bon_commande(int $idQuote): \Illuminate\Http\JsonResponse
+    {
+        $quote = Quote::findOrFail($idQuote);
+        $user  = Session::get('user');
+         $this->quoteService->bon_commande($user, $quote);
+
+        return response()->json([
+            'message' => 'Bon de commande généré avec succès.',
+//            'pdf_url' => asset('storage/devis/' . basename($pdfPath))
+        ]);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function facture(int $idQuote): \Illuminate\Http\JsonResponse
+    {
+        $quote = Quote::findOrFail($idQuote);
+        $user  = Session::get('user');
+        $this->quoteService->facture($user, $quote);
+
+        return response()->json([
+            'message' => 'Facture généré avec succès.',
+//            'pdf_url' => asset('storage/devis/' . basename($pdfPath))
+        ]);
+    }
 }
