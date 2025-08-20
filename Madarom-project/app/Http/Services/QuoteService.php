@@ -14,6 +14,15 @@ class QuoteService
     private const STATUS_PENDING = 'pending';
     private const STATUS_VALIDATED = 'validated';
 
+    private const STATUS_COMMAND = 'command';
+    private const ROLE_ADMIN = 'admin';
+    private const ROLE_USER = 'user';
+    private const STATUS_DELIVERED = 'delivered';
+    private const STATUS_FACTURATION = 'facturation';
+
+    private const STATUS_CANCELED = 'canceled';
+
+
     public function getQuotes(int $user_id): array
     {
         return Quote::with('items.product.active_price')
@@ -129,6 +138,57 @@ class QuoteService
 
         return  $this->generatePdf($quoteRequest, $quote);
 
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function canceledQuote (User $user, Quote $quote): string
+    {
+        if ($quote->getStatus() == self::STATUS_FACTURATION || $quote->getStatus() == self::STATUS_DELIVERED) {
+            throw new \Exception('Cette demande a deja ete facturee');
+        }
+        if (! $user->getRole() == self::ROLE_ADMIN ) {
+            throw new \Exception('Unauthorized action');
+        }
+        $quote->setStatus(self::STATUS_CANCELED);
+
+        $quote->update(['status' => self::STATUS_CANCELED, 'updated_at' => now()]);
+        $quoteRequest  = QuoteRequest::with('items.product.active_price')->find($quote->getQuote_request());
+        return $this->generatePdf($quoteRequest, $quote);
+
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function bon_commande(User $user, Quote $quote): string
+    {
+        if ($quote->getStatus() == self::STATUS_FACTURATION || $quote->getStatus() == self::STATUS_DELIVERED) {
+            throw new \Exception('Cette demande a deja ete facturee');
+        }
+
+        $quote->setStatus(self::STATUS_COMMAND);
+
+        $quote->update(['status' => self::STATUS_COMMAND, 'updated_at' => now()]);
+        $quoteRequest  = QuoteRequest::with('items.product.active_price')->find($quote->getQuote_request());
+        return $this->generatePdf($quoteRequest, $quote);
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function facture(User $user, Quote $quote): string
+    {
+        if ($quote->getStatus() == self::STATUS_FACTURATION || $quote->getStatus() == self::STATUS_DELIVERED) {
+            throw new \Exception('Cette demande a deja ete facturee');
+        }
+
+        $quote->setStatus(self::STATUS_FACTURATION);
+
+        $quote->update(['status' => self::STATUS_FACTURATION, 'updated_at' => now()]);
+        $quoteRequest  = QuoteRequest::with('items.product.active_price')->find($quote->getQuote_request());
+        return $this->generatePdf($quoteRequest, $quote);
     }
 
     private function generateQuoteNumber(): string
