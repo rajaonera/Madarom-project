@@ -59,6 +59,7 @@ Route::middleware('auth:sanctum')->prefix('preferences')->group(function () {
 Route::middleware('auth:sanctum')->prefix('quote')->group(function () {
     Route::get('/', [QuoteController::class, 'index']);
     Route::post('/', [QuoteController::class, 'store']);
+    Route::post('/validation', [QuoteController::class, 'validateQuoteRequest']);;
 });
 
 // API gestion de prix
