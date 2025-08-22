@@ -19,11 +19,11 @@ class SubCategorySeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         SubCategory::insert([
-            ['id' => 1, 'name' => 'Respiratoire', 'category_id' => 1, 'slug' => 'respiratoire'],
-            ['id' => 2, 'name' => 'Digestif', 'category_id' => 1, 'slug' => 'digestif'],
-            ['id' => 3, 'name' => 'Tonifiant', 'category_id' => 1, 'slug' => 'tonifiant'],
-            ['id' => 4, 'name' => 'Aromatique', 'category_id' => 2, 'slug' => 'aromatique'],
-            ['id' => 5, 'name' => 'Culinaire', 'category_id' => 2, 'slug' => 'culinaire'],
+            ['id' => 1, 'name' => 'Respiratory', 'category_id' => 1, 'slug' => 'respiratory'],
+            ['id' => 2, 'name' => 'Digestive', 'category_id' => 1, 'slug' => 'digestive'],
+            ['id' => 3, 'name' => 'Tonic', 'category_id' => 1, 'slug' => 'tonic'],
+            ['id' => 4, 'name' => 'Aromatic', 'category_id' => 2, 'slug' => 'aromatic'],
+            ['id' => 5, 'name' => 'Culinary', 'category_id' => 2, 'slug' => 'culinary'],
         ]);
     }
 }
