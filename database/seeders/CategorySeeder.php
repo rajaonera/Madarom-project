@@ -20,8 +20,8 @@ class CategorySeeder extends Seeder
 
         // Insertion des données
         Category::insert([
-            ['name' => 'Huiles essentielles', 'slug' => 'huiles-essentielles'],
-            ['name' => 'Épices', 'slug' => 'epices'],
+            ['name' => 'Essential Oil', 'slug' => 'essential-oil'],
+            ['name' => 'Spices', 'slug' => 'spices'],
         ]);
     }
 }
