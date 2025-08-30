@@ -6,6 +6,11 @@ use App\Http\Services\QuoteService;
 use Illuminate\Database\Eloquent\Model;
 use \Illuminate\Database\Eloquent\Relations\BelongsTo;
 use \Illuminate\Database\Eloquent\Relations\HasMany;
+<<<<<<< Updated upstream:Madarom-project/app/Models/QuoteRequest.php
+=======
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
+>>>>>>> Stashed changes:app/Models/QuoteRequest.php
 
 class QuoteRequest extends Model
 {
@@ -20,6 +25,17 @@ class QuoteRequest extends Model
     {
         return $this->hasMany(QuoteRequestItem::class);
     }
+<<<<<<< Updated upstream:Madarom-project/app/Models/QuoteRequest.php
+=======
+
+
+    public function quote(): HasOne
+    {
+        return $this->hasOne(Quote::class, 'quote_request_id');
+    }
+
+
+>>>>>>> Stashed changes:app/Models/QuoteRequest.php
     public function is_validated(): bool
     {
         if($this->status == 'validated')

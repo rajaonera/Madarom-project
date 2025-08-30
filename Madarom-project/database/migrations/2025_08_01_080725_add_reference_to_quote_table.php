@@ -28,4 +28,8 @@ return new class extends Migration
             $table->dropColumn('reference');
         });
     }
+<<<<<<< Updated upstream:Madarom-project/database/migrations/2025_08_01_080725_add_reference_to_quote_table.php
 };
+=======
+};
+>>>>>>> Stashed changes:database/migrations/2025_08_01_080725_add_reference_to_quote_table.php

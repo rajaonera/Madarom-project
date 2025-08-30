@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Quote extends Model
 {
+<<<<<<< Updated upstream:Madarom-project/app/Models/Quote.php
+=======
+    protected $table = 'quote';
+    
+>>>>>>> Stashed changes:app/Models/Quote.php
     protected $fillable = ['id','user_id','quote_request_id','reference','day','hours', 'status', 'notes'];
 
     public function user(): BelongsTo
@@ -15,9 +20,20 @@ class Quote extends Model
         return $this->belongsTo(User::class);
     }
 
+<<<<<<< Updated upstream:Madarom-project/app/Models/Quote.php
     public function items (): HasMany
     {
         return $this->hasMany(QuoteRequestItem::class);
+=======
+    public function items(): HasMany
+    {
+        return $this->hasMany(QuoteRequestItem::class, 'quote_request_id', 'quote_request_id');
+    }
+
+    public function payment()
+    {
+        return $this->hasOne(Payment::class, 'quote_id', 'id');
+>>>>>>> Stashed changes:app/Models/Quote.php
     }
 
     public function is_validated(): bool
@@ -104,4 +120,8 @@ class Quote extends Model
         $this->attributes['notes'] = $value;
     }
 
+<<<<<<< Updated upstream:Madarom-project/app/Models/Quote.php
 }
+=======
+}
+>>>>>>> Stashed changes:app/Models/Quote.php
