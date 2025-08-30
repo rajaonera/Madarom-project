@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Notifications;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Notification;
+use Illuminate\Notifications\Messages\MailMessage;
+
+class QuoteSentNotification extends Notification
+{
+    use Queueable;
+
+    protected $quote;
+
+    public function __construct($quote)
+    {
+        $this->quote = $quote;
+    }
+
+    // Définir comment envoyer la notification
+    public function via($notifiable)
+    {
+        return ['mail', 'database'];
+    }
+
+    // Email
+    public function toMail($notifiable)
+    {
+        return (new MailMessage)
+                    ->subject('Votre devis Mad’arom est disponible')
+                    ->greeting("Bonjour {$notifiable->name},")
+                    ->line("Votre demande de devis a été traitée et est maintenant disponible.")
+                    ->line("Référence du devis : {$this->quote->id}")
+                    ->action('Voir le devis', url("https://site-madarom-en.vercel.app/user/quote/{$this->quote->id}"))
+                    ->line('Merci pour votre confiance.');
+    }
+
+    // Base de données
+    public function toDatabase($notifiable)
+    {
+        return [
+            'quote_id' => $this->quote->id,
+            'user_name' => $notifiable->name,
+            'message' => "Votre devis (réf : {$this->quote->id}) a été envoyé.",
+        ];
+    }
+}
